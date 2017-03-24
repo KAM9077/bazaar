@@ -30,18 +30,18 @@ class Dashboard extends Component {
     );
   }
 
-  ownerMenu() {
+  helperMenu() {
     return (
       <div className="trainer-menu">
-        Owner menu coming soon.
+        Helper menu coming soon.
       </div>
     );
   }
 
-  clientMenu() {
+  residentMenu() {
     return (
       <div className="client-menu">
-        Client menu coming soon.
+        Resident menu coming soon.
       </div>
     );
   }
@@ -49,10 +49,9 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <Link to="/dashboard/inbox">Inbox</Link> | <Link to="/profile/edit">Edit Profile</Link> | <Link to="/billing/settings">Billing</Link>
         {this.isRole('Admin', this.adminMenu())}
-        {this.isRole('Owner', this.ownerMenu())}
-        {this.isRole('Client', this.clientMenu())}
+        {this.isRole('Helper', this.helperMenu())}
+        {this.isRole('Resident', this.residentMenu())}
         <p>{this.props.content}</p>
       </div>
     );

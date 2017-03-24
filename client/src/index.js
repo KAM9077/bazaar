@@ -5,6 +5,8 @@ import { createStore, applyMiddleware } from 'redux';
 import { Router, browserHistory } from 'react-router';
 import reduxThunk from 'redux-thunk';
 import cookie from 'react-cookie';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 import routes from './routes';
 import reducers from './reducers/index';
 // import ReactGA from 'react-ga';
@@ -20,8 +22,9 @@ function logPageView() {
   // ReactGA.pageview(window.location.pathname);
 }
 
-const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
-const store = createStoreWithMiddleware(reducers);
+const store = createStore(reducers, composeWithDevTools(
+  applyMiddleware(reduxThunk)
+));
 
 const token = cookie.load('token');
 

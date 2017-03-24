@@ -131,7 +131,7 @@ export function deleteData(action, errorType, isAuthReq, url, dispatch) {
 //= ===============================
 export function sendContactForm({ name, emailAddress, message }) {
   return function (dispatch) {
-    axios.post(`${API_URL}/communication/contact`, { name, emailAddress, message })
+    axios.post(`${API_URL}/contact`, { name, emailAddress, message })
     .then((response) => {
       dispatch({
         type: SEND_CONTACT_FORM,
