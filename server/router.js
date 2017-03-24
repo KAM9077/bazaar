@@ -1,10 +1,12 @@
 const AuthenticationController = require('./controllers/authentication');
 const UserController = require('./controllers/user');
-const ChatController = require('./controllers/chat');
+const OrderController = require('./controllers/order');
+const HistoryController = require('./controllers/history');
 const CommunicationController = require('./controllers/communication');
-const StripeController = require('./controllers/stripe');
+
 const express = require('express');
 const passport = require('passport');
+
 const ROLE_MEMBER = require('./constants').ROLE_MEMBER;
 const ROLE_CLIENT = require('./constants').ROLE_CLIENT;
 const ROLE_OWNER = require('./constants').ROLE_OWNER;
@@ -21,8 +23,8 @@ module.exports = function (app) {
   const apiRoutes = express.Router(),
     authRoutes = express.Router(),
     userRoutes = express.Router(),
-    chatRoutes = express.Router(),
-    payRoutes = express.Router(),
+    historyRoutes = express.Router(),
+    orderRoutes = express.Router(),
     communicationRoutes = express.Router();
 
   //= ========================
@@ -64,46 +66,30 @@ module.exports = function (app) {
   });
 
   //= ========================
-  // Chat Routes
+  // History Routes
   //= ========================
 
-  // Set chat routes as a subgroup/middleware to apiRoutes
-  apiRoutes.use('/chat', chatRoutes);
+  // Set history routes as a subgroup/middleware to apiRoutes
+  apiRoutes.use('/history', historyRoutes);
 
   // View messages to and from authenticated user
-  chatRoutes.get('/', requireAuth, ChatController.getConversations);
+  historyRoutes.get('/:userId', requireAuth, HistoryController.menu);
 
-  // Retrieve single conversation
-  chatRoutes.get('/:conversationId', requireAuth, ChatController.getConversation);
+  // Retrieve historys history by type
+  historyRoutes.get('/:userId/:type', requireAuth, HistoryController.getOrders);
 
-  // Send reply in conversation
-  chatRoutes.post('/:conversationId', requireAuth, ChatController.sendReply);
 
-  // Start new conversation
-  chatRoutes.post('/new/:recipient', requireAuth, ChatController.newConversation);
 
-  //= ========================
-  // Payment Routes
-  //= ========================
-  apiRoutes.use('/pay', payRoutes);
+  // Set order routes as a subgroup/middleware to apiRoutes
+  apiRoutes.use('/order', orderRoutes);
 
-  // Webhook endpoint for Stripe
-  payRoutes.post('/webhook-notify', StripeController.webhook);
+  orderRoutes.get('/:orderId', requireAuth, OrderController.getOrder)
 
-  // Create customer and subscription
-  payRoutes.post('/customer', requireAuth, StripeController.createSubscription);
+  // Add an item to the order
+  orderRoutes.post('/add/:orderId/:itemId', requireAuth, OrderController.addItem);
 
-  // Update customer object and billing information
-  payRoutes.put('/customer', requireAuth, StripeController.updateCustomerBillingInfo);
-
-  // Delete subscription from customer
-  payRoutes.delete('/subscription', requireAuth, StripeController.deleteSubscription);
-
-  // Upgrade or downgrade subscription
-  payRoutes.put('/subscription', requireAuth, StripeController.changeSubscription);
-
-  // Fetch customer information
-  payRoutes.get('/customer', requireAuth, StripeController.getCustomer);
+  // Remove item from order
+  // orderRoutes.post('/remove/:orderId/:itemId', requireAuth, OrderController.removeItem);
 
   //= ========================
   // Communication Routes

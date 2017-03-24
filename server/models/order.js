@@ -1,10 +1,12 @@
 const mongoose = require('mongoose'),
   Schema = mongoose.Schema;
+const CLO_ORDER = require('../constants').CLO_ORDER;
+const HYG_ORDER = require('../constants').HYG_ORDER;
 
 const OrderSchema = new Schema({
     userId: {
       type: Schema.Types.ObjectId,
-      required: true
+      required: true,
       ref: 'User'
     },
     items: [{
