@@ -56,31 +56,37 @@ class Register extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} className="form">
         {this.renderAlert()}
         <div className="row">
-          <div className="col-md-6">
-            <label>First Name</label>
-            <Field name="firstName" className="form-control" component={renderField} type="text" />
-          </div>
-          <div className="col-md-6">
-            <label>Last Name</label>
-            <Field name="lastName" className="form-control" component={renderField} type="text" />
+          <div className= "col-xs-9 .col-sm-3 .col-lg-5">
+            <label className="form_text">Family name</label>
+            <Field name="lastName" className="form-control" component={renderField} type="text" placeholder="The family name" />
           </div>
         </div>
         <div className="row">
-          <div className="col-md-12">
-            <label>Email</label>
-            <Field name="email" className="form-control" component={renderField} type="text" />
+          <div className= "col-xs-9 .col-sm-3 .col-lg-5">
+            <label className="form_text">First name</label>
+            <Field name="firstName" className="form-control" component={renderField} type="text" placeholder="The first name" />
           </div>
         </div>
         <div className="row">
-          <div className="col-md-12">
-            <label>Password</label>
-            <Field name="password" className="form-control" component={renderField} type="password" />
+          <div className= "col-xs-9 .col-sm-3 .col-lg-5">
+            <label className="form_text">Email</label>
+            <Field name="email" className="form-control" component={renderField} type="text" placeholder="The email" />
           </div>
         </div>
-        <button type="submit" className="btn btn-primary">Register</button>
+        <div className="row">
+          <div className= "col-xs-9 .col-sm-3 .col-lg-5">
+            <label className="form_text">Password</label>
+            <Field name="password" className="form-control" component={renderField} type="password" placeholder="The password" />
+          </div>
+        </div>
+        <div className= "col-xs-9 .col-sm-3 .col-lg-5 text-center">
+        <div className="row">
+          <button type="submit" className="btn btn-default">Register</button>
+        </div>
+        </div>
       </form>
     );
   }

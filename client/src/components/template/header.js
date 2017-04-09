@@ -38,7 +38,7 @@ class HeaderTemplate extends Component {
         <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container">
             <div className="navbar-header">
-              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse">
+              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
                 <span className="icon-bar" />
                 <span className="icon-bar" />
                 <span className="icon-bar" />
@@ -46,7 +46,7 @@ class HeaderTemplate extends Component {
               <Link className="navbar-brand" to="/">{this.props.logo}</Link>
             </div>
 
-            <div className="collapse navbar-collapse" id="nav-collapse">
+            <div className="collapse navbar-collapse" id="nav-collapse" aria-expanded="false">
               <ul className="nav navbar-nav navbar-right">
                 {this.renderLinks()}
               </ul>
