@@ -6,6 +6,7 @@ import { loginUser } from '../../actions/auth';
 
 const form = reduxForm({
   form: 'login',
+  fields: ['lastName', 'password']
 });
 
 class Login extends Component {
@@ -24,19 +25,19 @@ class Login extends Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { fields: { lastName, password }, handleSubmit } = this.props;
 
     return (
       <div className="form-group" className="form" >
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           {this.renderAlert()}
-          <div className= "col-xs-9 .col-sm-3 .col-lg-5">
+          <div className= {`col-xs-9 .col-sm-3 .col-lg-5`}>
             <label className="form_text"> Family name</label>
-            <Field name="family_name" className="form-control" component="input" type="text" placeholder="Your family name" />
+            <Field name="lastName" className="form-control" component="input" type="text" placeholder="Your family name" {...lastName}/>
           </div>
           <div className= "col-xs-9 .col-sm-3 .col-lg-5">
             <label className="form_text">Password</label>
-            <Field name="password" className="form-control" component="input" type="password" placeholder="Your password" />
+            <Field name="password" className="form-control" component="input" type="password" placeholder="Your password" {...password} />
           </div>
           <div className= "col-xs-9 .col-sm-3 .col-lg-5 text-center">
             <button type="submit" className="btn btn-default">Login</button>
@@ -56,4 +57,5 @@ function mapStateToProps(state) {
   };
 }
 
+// We link the component (login), the action creator (loginUser) and the state
 export default connect(mapStateToProps, { loginUser })(form(Login));

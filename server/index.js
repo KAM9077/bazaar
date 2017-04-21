@@ -6,9 +6,11 @@ const express = require('express'),
   router = require('./router'),
   mongoose = require('mongoose'),
   socketEvents = require('./socketEvents'),
-  config = require('./config/main');
+  config = require('./config/main'),
+  UserModel = require('./models/user');
 
 // Database Setup
+mongoose.Promise = global.Promise;
 mongoose.connect(config.database);
 
 // Start the server
@@ -47,3 +49,25 @@ router(app);
 
 // necessary for testing
 module.exports = server;
+
+
+//Example of user registration based on the User Model
+var user1 = new UserModel ({ password : '123', profile : { lastName : 'Baba' } });
+user1.save(function (err) {
+  if (err) { throw err; }
+  console.log('User1 rajouté !');
+});
+
+
+// Deal with login requests and reponses
+app.post('/api/auth/login', function(req, res) {
+    var lastName = req.body.lastName;
+    var password = req.body.password;
+    console.log(lastName);
+    console.log(password);
+
+    UserModel.find({}, function(err, data){
+       console.log(">>>> " + data );
+   });
+   res.send('You are connected !');
+});

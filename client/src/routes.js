@@ -27,6 +27,9 @@ import AdminDashboard from './components/admin/dashboard';
 // Import higher order components
 import RequireAuth from './components/auth/require_auth';
 
+// Import connected residents related pages
+import family_members_list from './components/connected_resident/family_members_list';
+
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
@@ -38,7 +41,7 @@ export default (
     <Route path="forgot-password" component={ForgotPassword} />
     <Route path="reset-password/:resetToken" component={ResetPassword} />
 
-    <Route path="profile" component={RequireAuth(ViewProfile)} />
+    <Route path="family-members-list" component={RequireAuth(family_members_list)} />
 
     <Route path="admin" component={RequireAuth(AdminDashboard)} />
 
