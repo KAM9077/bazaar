@@ -9,6 +9,7 @@ const express = require('express'),
   config = require('./config/main'),
   UserModel = require('./models/user');
 
+
 // Database Setup
 mongoose.Promise = global.Promise;
 mongoose.connect(config.database);
@@ -52,14 +53,16 @@ module.exports = server;
 
 
 //Example of user registration based on the User Model
+/*
 var user1 = new UserModel ({ password : '123', profile : { lastName : 'Baba' } });
 user1.save(function (err) {
   if (err) { throw err; }
   console.log('User1 rajouté !');
 });
+*/
 
-
-// Deal with login requests and reponses
+// When the user logs in, he gives request ={ lastName, password }.
+// He sends response = { array of firstNames of memebers of the family}
 app.post('/api/auth/login', function(req, res) {
     var lastName = req.body.lastName;
     var password = req.body.password;

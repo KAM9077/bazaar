@@ -41,7 +41,7 @@ export default (
     <Route path="forgot-password" component={ForgotPassword} />
     <Route path="reset-password/:resetToken" component={ResetPassword} />
 
-    <Route path="family-members-list" component={RequireAuth(family_members_list)} />
+    <Route path="family-members-list" component={family_members_list} />
 
     <Route path="admin" component={RequireAuth(AdminDashboard)} />
 

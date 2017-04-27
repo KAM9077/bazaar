@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router';
 
 class family_members_list extends Component {
 
   render() {
       return (
-        <ul className="list-group">
-        </ul>
-      );
+        <div>
+          <h3> {this.props.lastName} </h3>
+          <ul className="list-group">
+            {this.props.members.map( (person, index) => ( <li> {person} </li> ))}
+          </ul>
+        </div> );
   }
-}
 
-function mapStateToProps(state) {
-  return {
-  };
 }
 
 export default family_members_list;
