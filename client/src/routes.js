@@ -29,6 +29,8 @@ import RequireAuth from './components/auth/require_auth';
 
 // Import connected residents related pages
 import family_members_list from './components/connected_resident/family_members_list';
+import choose_category from './components/connected_resident/choose_category';
+import resident_clothes_history from './components/connected_resident/resident_clothes_history';
 
 export default (
   <Route path="/" component={App}>
@@ -42,6 +44,8 @@ export default (
     <Route path="reset-password/:resetToken" component={ResetPassword} />
 
     <Route path="family-members-list" component={family_members_list} />
+    <Route path="choose_category" component={choose_category} />
+      <Route path="resident_clothes_history" component={resident_clothes_history} />
 
     <Route path="admin" component={RequireAuth(AdminDashboard)} />
 

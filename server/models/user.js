@@ -68,7 +68,12 @@ const UserSchema = new Schema({
       participatory: { type: String },
       future: { type: String }
     },
-
+    departure: {
+      date: { type: String },
+      country: { type: String }
+    },
+    archive: ['YES', 'NO'],
+    notes: { type: String },
     stripe: {
       customerId: { type: String },
       subscriptionId: { type: String },

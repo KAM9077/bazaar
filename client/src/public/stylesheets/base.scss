@@ -46,3 +46,19 @@ p.copyright>span {
 .form_text {
   color : white;
 }
+
+// choose_category component
+
+.buttonCategory {
+  color : white;
+  border: 2px solid white;
+  background: none;
+  font-size: 270%;
+}
+
+.containerCenter
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
