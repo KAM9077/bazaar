@@ -16,9 +16,9 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   role: {
     type: String,
+    enum: [ROLE_ADMIN, ROLE_MEMBER, ROLE_RESIDENT, ROLE_VOLUNTEER],
     default: ROLE_MEMBER
   },
-  profile: {
     camp: { type: String },
     room: { type: String },
     // Profile of the resident
@@ -31,8 +31,8 @@ const UserSchema = new Schema({
     language1: { type: String },
     language2: { type: String },
     language3: { type: String },
-    language4: { type: String }
-  },
+    language4: { type: String },
+
     relationship: { type: String },
     arrivalDate: { type: String },
     documents: { type: String },
@@ -92,7 +92,8 @@ const UserSchema = new Schema({
 // User ORM Methods
 //= ===============================
 
-// Pre-save of user to database, hash password if password is modified or new
+// Pre-save of user to database, hash password if password is modified or new.
+// We run this function pre before adding the user to the database.
 UserSchema.pre('save', function (next) {
   const user = this,
     SALT_FACTOR = 5;

@@ -8,12 +8,12 @@ const passport = require('passport'),
 
 // Setting username field to email rather than username
 const localOptions = {
-  usernameField: 'email'
+  usernameField: 'lastName'
 };
 
 // Setting up local login strategy
-const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
-  User.findOne({ email }, (err, user) => {
+const localLogin = new LocalStrategy(localOptions, (lastName, password, done) => {
+  User.findOne({ lastName }, (err, user) => {
     if (err) { return done(err); }
     if (!user) { return done(null, false, { error: 'Your login details could not be verified. Please try again.' }); }
 
@@ -32,14 +32,15 @@ const jwtOptions = {
   jwtFromRequest: ExtractJwt.fromAuthHeader(),
   // Telling Passport where to find the secret
   secretOrKey: config.secret
-
-  // TO-DO: Add issuer and audience checks
 };
 
 // Setting up JWT login strategy
 const jwtLogin = new JwtStrategy(jwtOptions, (payload, done) => {
   User.findById(payload._id, (err, user) => {
-    if (err) { return done(err, false); }
+    if (err)
+      { return done(err, false);}
+    else
+      console.log('payload received', payload);
 
     if (user) {
       done(null, user);

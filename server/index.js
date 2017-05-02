@@ -50,27 +50,3 @@ router(app);
 
 // necessary for testing
 module.exports = server;
-
-
-//Example of user registration based on the User Model
-/*
-var user1 = new UserModel ({ password : '123', profile : { lastName : 'Baba' } });
-user1.save(function (err) {
-  if (err) { throw err; }
-  console.log('User1 rajouté !');
-});
-*/
-
-// When the user logs in, he gives request ={ lastName, password }.
-// He sends response = { array of firstNames of memebers of the family}
-app.post('/api/auth/login', function(req, res) {
-    var lastName = req.body.lastName;
-    var password = req.body.password;
-    console.log(lastName);
-    console.log(password);
-
-    UserModel.find({}, function(err, data){
-       console.log(">>>> " + data );
-   });
-   res.send('You are connected !');
-});

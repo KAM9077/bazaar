@@ -8,7 +8,6 @@ const getRole = require('../helpers').getRole;
 const config = require('../config/main');
 
 // Generate JWT
-// TO-DO Add issuer and audience
 function generateToken(user) {
   return jwt.sign(user, config.secret, {
     expiresIn: 604800 // in seconds
@@ -65,7 +64,8 @@ exports.register = function (req, res, next) {
     const user = new User({
       email,
       password,
-      profile: { firstName, lastName }
+      firstName, 
+      lastName
     });
 
     user.save((err, user) => {
