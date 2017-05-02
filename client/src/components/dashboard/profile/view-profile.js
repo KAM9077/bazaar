@@ -8,13 +8,13 @@ import UserInfo from './user-info';
 class ViewProfile extends Component {
   componentWillMount() {
     // Fetch user data prior to component mounting
-    const userId = cookie.load('uid');
+    const userId = cookie.load('user')._id;
     this.props.fetchUser(userId);
   }
 
   render() {
     return (
-      <UserInfo profile={this.props.profile.email} />
+      <UserInfo lastName={this.props.profile.lastName} />
     );
   }
 }

@@ -17,7 +17,7 @@ export function fetchUser(uid) {
     .then((response) => {
       dispatch({
         type: FETCH_USER,
-        payload: response.data.user,
+        payload: response.data,
       });
     })
     .catch(response => dispatch(errorHandler(response.data.error)));

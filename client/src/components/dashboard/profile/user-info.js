@@ -4,7 +4,7 @@ class UserInfo extends Component {
   render() {
     return (
       <div>
-        {this.props.profile}
+      Members of the family {this.props.lastName}
       </div>
     );
   }

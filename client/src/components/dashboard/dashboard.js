@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import cookie from 'react-cookie';
 import { protectedTest } from '../../actions/auth';
+import family_members_list from '../connected_resident/family_members_list';
+import ViewProfile from './profile/view-profile';
 
 class Dashboard extends Component {
 
@@ -32,7 +34,7 @@ class Dashboard extends Component {
 
   helperMenu() {
     return (
-      <div className="trainer-menu">
+      <div className="helper-menu">
         Helper menu coming soon.
       </div>
     );
@@ -40,8 +42,9 @@ class Dashboard extends Component {
 
   residentMenu() {
     return (
-      <div className="client-menu">
-        Resident menu coming soon.
+      <div className="resident-menu">
+        <ViewProfile />
+        aaaaa
       </div>
     );
   }

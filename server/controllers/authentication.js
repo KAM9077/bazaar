@@ -64,7 +64,7 @@ exports.register = function (req, res, next) {
     const user = new User({
       email,
       password,
-      firstName, 
+      firstName,
       lastName
     });
 

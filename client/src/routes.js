@@ -43,15 +43,14 @@ export default (
     <Route path="forgot-password" component={ForgotPassword} />
     <Route path="reset-password/:resetToken" component={ResetPassword} />
 
-    <Route path="family-members-list" component={family_members_list} />
-    <Route path="choose_category" component={choose_category} />
-      <Route path="resident_clothes_history" component={resident_clothes_history} />
-
     <Route path="admin" component={RequireAuth(AdminDashboard)} />
 
     <Route path="dashboard">
       <IndexRoute component={RequireAuth(Dashboard)} />
       <Route path="order" component={RequireAuth(OrderHistory)} />
+      <Route path="family-members-list" component={RequireAuth(family_members_list)} />
+      <Route path="choose_category" component={RequireAuth(choose_category)} />
+      <Route path="resident_clothes_history" component={RequireAuth(resident_clothes_history)} />
     </Route>
 
     <Route path="*" component={NotFoundPage} />

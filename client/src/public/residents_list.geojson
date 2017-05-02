@@ -1,0 +1,17 @@
+
+{ "password": "123", "camp": "285-1", "room ": "202.0", "lastName": "A", "firstName": "1.0", "gender": "F", "doB": null, "age": "55" , "email" : "R@R.com" }
+{ "password": "123", "camp": "286-1", "room ": "202.0", "lastName": "A", "firstName": "2.0", "gender": "F", "doB": null, "age": "56" , "email": "R@R.com" }
+{ "password": "123", "camp": "287-1", "room ": "202.0", "lastName": "A", "firstName": "3.0", "gender": "F", "doB": null, "age": "57" , "email": "R@R.com" }
+{ "password": "123", "camp": "288-1", "room ": "202.0", "lastName": "A", "firstName": "4.0", "gender": "F", "doB": null, "age": "58" , "email": "R@R.com" }
+{ "password": "123", "camp": "289-1", "room ": "202.0", "lastName": "A", "firstName": "5.0", "gender": "F", "doB": null, "age": "59" , "email": "R@R.com" }
+{ "password": "123", "camp": "290-1", "room ": "202.0", "lastName": "A", "firstName": "6.0", "gender": "M", "doB": null, "age": "60" , "email": "R@R.com" }
+{ "password": "123", "camp": "291-1", "room ": "202.0", "lastName": "A", "firstName": "7.0", "gender": "F", "doB": null, "age": "61" , "email": "R@R.com" }
+{ "password": "123", "camp": "207-1", "room ": "203.0", "lastName": "B", "firstName": "1.0", "gender": "F", "doB": null, "age": "66" , "email": "R@R.com" }
+{ "password": "123", "camp": "208-1", "room ": "203.0", "lastName": "B", "firstName": "2.0", "gender": "F", "doB": null, "age": "67" , "email": "R@R.com" }
+{ "password": "123", "camp": "178-1", "room ": "204.0", "lastName": "C", "firstName": "1.0", "gender": "M", "doB": null, "age": "77" , "email": "R@R.com" }
+{ "password": "123", "camp": "179-1", "room ": "204.0", "lastName": "C", "firstName": "2.0", "gender": "F", "doB": null, "age": "78" , "email": "R@R.com" }
+{ "password": "123", "camp": "180-1", "room ": "204.0", "lastName": "C", "firstName": "3.0", "gender": "M", "doB": null, "age": "79" , "email": "R@R.com" }
+{ "password": "123", "camp": "181-1", "room ": "204.0", "lastName": "C", "firstName": "4.0", "gender": "M", "doB": null, "age": "80" , "email": "R@R.com" }
+{ "password": "123", "camp": "183-1", "room ": "204.0", "lastName": "C", "firstName": "5.0", "gender": "M", "doB": null, "age": "82" , "email": "R@R.com" }
+{ "password": "123", "camp": "184-1", "room ": "204.0", "lastName": "C", "firstName": "6.0", "gender": "F", "doB": null, "age": "83" , "email": "R@R.com" }
+{ "password": "123", "camp": "185-1", "room ": "204.0", "lastName": "C", "firstName": "7.0", "gender": "M", "doB": null, "age": "84" , "email": "R@R.com" }
